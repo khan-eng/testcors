@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+    <script>
+
+        var item = {
+            PaymentAuthorizeRequestMessage:
+            {
+                BranchID: "61239402327",
+                TellerID: "1111",
+                DeviceID: "2222",
+                RefNum: "121212",
+                BillNumber: "0102",
+                CustomerQR: "002010188907CEBD46B4066A5CF6B57C6A8781E?278064",
+                Amount: 1,
+                MerchantNote: "This is test",
+                ExpiryPeriodType: 1,
+                ExpiryPeriod: 1
+            }
+        };
+        var password = new String("EmjqvDstU0gx6KvBP@@$$w0rd");
+        $.ajax({
+            url: 'https://b2btest.stcpay.com.sa/B2B.MerchantWebApi/Merchant/v3/PaymentAuthorize',
+            type: 'post',
+            data: item,
+            headers: { "X-ClientCode": "61239402327", "X-UserName": "E6hQ1mJbt8lbuUqc$eR", "X-Password": password, "Content-Type": "application/json" },
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    </script>
+</body>
+</html>
